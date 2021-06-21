@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Location</masterLabel>
+    <description>Show locations on map.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage">
+            <property name="objectName" type="String" label="Object" placeholder="Account" description="Enter the Object Name for which you want to show location data. Create an apex class with name &lt;Object&gt;MapLocationData that implements IMapLocationData"/>
+            <property name="recordIcon" type="String" label="Record Icon" placeholder="standard:account" description="Enter the icon to use for each record."/>
+            <property name="channelName" type="String" label="Channel to Subscribe" placeholder="/event/UpdateAccountAddress__e" description="Enter the event name to subscribe to for auto refreshing address if there is a change."/>
+            <property name="streetFieldAPIName" type="String" label="API Name of field for Street" placeholder="BillingStreet" description="Enter the API name of field that should display data for Street. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="cityFieldAPIName" type="String" label="API Name of field for City" placeholder="BillingCity" description="Enter the API name of field that should display data for City. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="stateFieldAPIName" type="String" label="API Name of field for State" placeholder="BillingState" description="Enter the API name of field that should display data for State. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="zipPostalCodeFieldAPIName" type="String" label="API Name of field for Zip / Postal Code" placeholder="BillingPostalCode" description="Enter the API name of field that should display data for Postal Code. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="countryFieldAPIName" type="String" label="API Name of field for Country" placeholder="BillingCountry" description="Enter the API name of field that should display data for Postal Code. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="geoLatitudeFieldAPIName" type="String" label="API Name of field for Latitude" placeholder="LocationLatitude__c" description="Enter the API name of field that should display data for Postal Code. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="geoLongitudeFieldAPIName" type="String" label="API Name of field for Longitude" placeholder="LocationLongitude__c" description="Enter the API name of field that should display data for Postal Code. Either use combination of Street, City, State, Postal Code, Country OR Latitude, Longitude."/>
+            <property name="titleFieldAPIName" type="String" label="API Name of field for Title" default="Name" placeholder="Name" description="Enter the API name of field that will display the location Title for each record. For e.g. Name"/>
+            <property name="descriptionFieldAPIName" type="String" label="API Name of field for Description" placeholder="Industry" description="Enter the API name of field that will display under the Title on the map. For e.g. Industry or Email etc."/>
+            <property name="valueFieldAPIName" type="String" label="API Name Record Id" placeholder="Id" description="Record Id API Name."/>
+            <property name="showRefreshButton" type="Boolean" label="Show Refresh Button" description="Not necessary if you are subscribing to a channel."/>
+            <property name="markersTitle" type="String" label="Title for list of markers" placeholder="Accounts" default="List" description="Choose the title for the list of markers. For e.g. Accounts, Contacts etc."/>
+            <property name="mapZoomLevel" type="Integer" label="Zoom level for Map" default="5" description="Set the zoom level of Map; From 1 to 22."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

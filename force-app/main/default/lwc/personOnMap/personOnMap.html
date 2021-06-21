@@ -1,0 +1,21 @@
+<template>
+    <!-- <lightning-datatable key-field="Id"
+                            data={addressListV2}
+                            columns={columns}
+                            hide-checkbox-column="true" 
+                            show-row-number-column="true">
+    </lightning-datatable>  -->
+    <template if:true={showRefreshButton}>
+        <lightning-button variant="brand" label="Refresh" title="Primary action" onclick={refreshButtonClick} class="slds-var-m-left_x-small"></lightning-button>
+    </template>
+    <lightning-map
+        map-markers={mapMarkersV2}
+        markers-title={markersTitle}
+        onmarkerselect={handleMarkerSelect}
+        selected-marker-value={selectedMarkerValue}
+        zoom-level={mapZoomLevel}
+        list-view={listView}        
+        >
+  </lightning-map>
+  <!-- center={center} -->
+</template>
