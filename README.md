@@ -39,8 +39,17 @@ This Lightning Web Component (LWC) is used to show location of an address on Goo
     * mapZoomLevel - Default zoom level on component load. Valid values range from 1 to 22.
 
 Refer to screenshot below explaining which peoperty impacts what.
+![Component properties and where they impact](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__properties.png)
+
 
 * Step 4: (Optional) If you want your component to subscribe to any event i.e. if your data should refresh automatically whenever the address or lat-long changes, create an Event and mention event name in channelName property. As and when the event publishes, the personOnMap component fetches the data again.
 
 ## Screenshots
 
+Example 1 of 2: Show Contacts based on Mailing Address
+* ![Contact Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__Contact.png)
+* ![Contact Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactProperties.png)
+
+Example 2 of 2: Show Contacts based on Latitude and Longitude
+* ![Contact Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrent.png)
+* ![Contact Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrentProperties.png )
