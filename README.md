@@ -48,16 +48,13 @@ Refer to screenshot below explaining which peoperty impacts what.
 
 ### Example 1 of 2: Show Contacts based on Mailing Address
 
-* Contact Component UI
-![Contact Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__Contact.png)
+| Contact Component UI | Contact Component Properties |
+| --- | --- |
+| ![Contact Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__Contact.png) | ![Contact Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactProperties.png) |
 
-* Contact Component Properties
-![Contact Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactProperties.png)
 
 ### Example 2 of 2: Show Contacts based on Latitude and Longitude
 
-* Contact Current Component UI
-![Contact Current Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrent.png)
-
-* Contact Current Component Properties
-![Contact Current Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrentProperties.png )
+| Contact Current Component UI | Contact Current Component Properties |
+| --- | --- |
+| ![Contact Current Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrent.png) | ![Contact Current Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrentProperties.png) |
