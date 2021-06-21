@@ -21,22 +21,22 @@ This Lightning Web Component (LWC) is used to show location of an address on Goo
 * Step 1: Add personOnMap component to your project.
 * Step 2: Create a new class; give any name but it should end with `MapLocationData`. For e.g. `AccountMapLocationData` or `ContactMapLocationData`. This class should implement `IMapLocationData` interface. The method would return list of data i.e. List<SObject>
 * Step 3: Add personOnMap component to your page and set the following properties
-    * objectName - Unique identified related to data to be fetched. For e.g. if you apex class name is `AccountMapLocationData`, objectName would be `Account`. If your apex class name is `ContactCurrentMapLocationData`, objectName would be `ContactCurrent`.
-    * recordIcon - Icon seen in the list of records.
-    * channelName - (Optional) Channel name to subscribe to.
-    * streetFieldAPIName - Field name related to street. For e.g. MailingStreet or BillingStreet or any other custom field.
-    * cityFieldAPIName - Field name related to city. For e.g. MailingCity or BillingCity or any other custom field.
-    * stateFieldAPIName - Field name related to city. For e.g. MailingState or BillingState or any other custom field.
-    * zipPostalCodeFieldAPIName - Field name related to city. For e.g. MailingPostalCode or BillingPostalCode or any other custom field.
-    * countryFieldAPIName - Field name related to city. For e.g. MailingCountry or BillingCountry or any other custom field.
-    * geoLatitudeFieldAPIName - Field name related to Latitude. For e.g. any GeoLocation custom field. Refer to ContactCurrentMapLocationData.cls that uses latitude and longitude.
-    * geoLongitudeFieldAPIName - Field name related to Longitude. For e.g. any GeoLocation custom field. Refer to ContactCurrentMapLocationData.cls that uses latitude and longitude.
-    * titleFieldAPIName - Field name used to show Title.
-    * descriptionFieldAPIName - Field name used to show Description.
-    * valueFieldAPIName - Unique Id, use Record Id.
-    * showRefreshButton - Whether to show 'Refresh' button or not. If you gave channelName, you do not need to showRefreshButton
-    * markersTitle - Title text shown above list of all markers
-    * mapZoomLevel - Default zoom level on component load. Valid values range from 1 to 22.
+    * **objectName** - Unique identified related to data to be fetched. For e.g. if you apex class name is `AccountMapLocationData`, objectName would be `Account`. If your apex class name is `ContactCurrentMapLocationData`, objectName would be `ContactCurrent`.
+    * **recordIcon** - Icon seen in the list of records.
+    * **channelName** - (Optional) Channel name to subscribe to.
+    * **streetFieldAPIName** - Field name related to street. For e.g. MailingStreet or BillingStreet or any other custom field.
+    * **cityFieldAPIName** - Field name related to city. For e.g. MailingCity or BillingCity or any other custom field.
+    * **stateFieldAPIName** - Field name related to city. For e.g. MailingState or BillingState or any other custom field.
+    * **zipPostalCodeFieldAPIName** - Field name related to city. For e.g. MailingPostalCode or BillingPostalCode or any other custom field.
+    * **countryFieldAPIName** - Field name related to city. For e.g. MailingCountry or BillingCountry or any other custom field.
+    * **geoLatitudeFieldAPIName** - Field name related to Latitude. For e.g. any GeoLocation custom field. Refer to ContactCurrentMapLocationData.cls that uses latitude and longitude.
+    * **geoLongitudeFieldAPIName** - Field name related to Longitude. For e.g. any GeoLocation custom field. Refer to ContactCurrentMapLocationData.cls that uses latitude and longitude.
+    * **titleFieldAPIName** - Field name used to show Title.
+    * **descriptionFieldAPIName** - Field name used to show Description.
+    * **valueFieldAPIName** - Unique Id, use Record Id.
+    * **showRefreshButton** - Whether to show 'Refresh' button or not. If you gave channelName, you do not need to showRefreshButton
+    * **markersTitle** - Title text shown above list of all markers
+    * **mapZoomLevel** - Default zoom level on component load. Valid values range from 1 to 22.
 
 Refer to screenshot below explaining which peoperty impacts what.
 ![Component properties and where they impact](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__properties.png)
@@ -46,10 +46,12 @@ Refer to screenshot below explaining which peoperty impacts what.
 
 ## Screenshots
 
-Example 1 of 2: Show Contacts based on Mailing Address
+### Example 1 of 2: Show Contacts based on Mailing Address
+
 * ![Contact Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__Contact.png)
 * ![Contact Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactProperties.png)
 
-Example 2 of 2: Show Contacts based on Latitude and Longitude
+### Example 2 of 2: Show Contacts based on Latitude and Longitude
+
 * ![Contact Component UI](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrent.png)
 * ![Contact Component Properties](https://raw.githubusercontent.com/hpreets/sfdc_lightning_map/master/screenshots/personOnMap__ContactCurrentProperties.png )
