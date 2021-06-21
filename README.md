@@ -1,6 +1,6 @@
 # Salesforce Lightning Component: person-on-map 
 
-This Lightning Web Component (LWC) is used to show location of an address on Google map. It has the following feature
+This Lightning Web Component (LWC) is used to show location of an address on Google map. It has the following features
 - The address can be from any sObject like Account, Contact or even custom object. 
 - The address can be standard fields, custom address fields or even GeoLocation fieids too.
 - The Title, Description on the map too are completely configurable.
@@ -11,10 +11,10 @@ This Lightning Web Component (LWC) is used to show location of an address on Goo
 
 ## What All Files Are There In This Repository?
 
-- Lightning Web Component - personOnMap - This is the base component that provides the functionality. Multiple instnaces of this component can be added to a page by providing different properties.
-- Apex Class - Location.cls - This apex class is wired to the lightning component to fetch data to be displayed on the map. The actual data fetching is delegated to classes that implement IMapLocationData interface.
-- Apex Class - IMapLocationData.cls - Interface class that must be implemented by data class to return data to be displayed on map. Refer to sample classes for more information -  `AccountMapLocationData.cls`, `ContactMapLocationData.cls`, `ContactCurrentMapLocationData.cls`. The name of the class should match the `objectName` property. In the 3 sample files provided above, the name of `objectName` property would be `Account`, `Contact` and `ContactCurrent` respectively.
-- Apex Trigger -  ContactTrigger.trigger - This is optional and is used to publish event on update of Contact record. Hence, on update of Contact, an event is published, which personOnMap component subscibes to, there by updating the data automatically without any manual intervention.
+- **Lightning Web Component - personOnMap** - This is the base component that provides the functionality. Multiple instnaces of this component can be added to a page by providing different properties.
+- **Apex Class - Location.cls** - This apex class is wired to the lightning component to fetch data to be displayed on the map. The actual data fetching is delegated to classes that implement IMapLocationData interface.
+- **Apex Class - IMapLocationData.cls** - Interface class that must be implemented by data class to return data to be displayed on map. Refer to sample classes for more information -  `AccountMapLocationData.cls`, `ContactMapLocationData.cls`, `ContactCurrentMapLocationData.cls`. The name of the class should match the `objectName` property. In the 3 sample files provided above, the name of `objectName` property would be `Account`, `Contact` and `ContactCurrent` respectively.
+- **Apex Trigger -  ContactTrigger.trigger** - This is optional and is used to publish event on update of Contact record. Hence, on update of Contact, an event is published, which personOnMap component subscibes to, there by updating the data automatically without any manual intervention.
 
 ## How to use in your project
 
