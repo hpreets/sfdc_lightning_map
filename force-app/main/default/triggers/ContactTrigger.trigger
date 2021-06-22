@@ -13,8 +13,8 @@ trigger ContactTrigger on Contact (before insert, before update) {
             ||  oldCont.MailingState != cont.MailingState
             ||  oldCont.MailingPostalCode != cont.MailingPostalCode
             ||  oldCont.MailingCountry != cont.MailingCountry
-            ||  oldCont.Current_Locatoion__Longitude__s != cont.Current_Locatoion__Longitude__s
-            ||  oldCont.Current_Locatoion__Latitude__s != cont.Current_Locatoion__Latitude__s
+            ||  oldCont.Current_Location__Longitude__s != cont.Current_Location__Longitude__s
+            ||  oldCont.Current_Location__Latitude__s != cont.Current_Location__Latitude__s
         ) {
             contUpdateEventList.add(new UpdateContactAddress__e());
         }
