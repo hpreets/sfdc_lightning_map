@@ -1,0 +1,14 @@
+<template>
+    <lightning-card
+        title="Subscribe Me"
+        icon-name="standard:contact">
+        <lightning-record-form
+            object-api-name={objectApiName}
+            fields={fields}
+            onsuccess={handleSuccess}
+            mode="edit"
+            record-id={recordId}>
+        </lightning-record-form>
+    </lightning-card>
+
+</template>
