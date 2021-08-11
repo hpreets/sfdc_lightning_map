@@ -7,11 +7,19 @@ import getFilterDetails from '@salesforce/apex/ContactListLWCHelper.getFilterDet
 
 export default class ContactListWithFilters extends LightningElement {
 
-    filtersData = {
-    };
+    /**
+     * It contains data for all filters. options property of lightning-combobox 
+     * refers to this property.
+     */ 
+    filtersData = {};
 
+    /**
+     * Filter data received from Apex Controller is in String. 
+     * This method converts it to JSON for further usage.
+     * @param {*} result - String representation of all filter JSON data
+     */
     @wire(getFilterData)
-    filterDataV2(result) {
+    filtersDataMethod(result) {
 
         if (result.data) {
             // This will convert data from List<SObject> to desired JSON format.
@@ -19,6 +27,11 @@ export default class ContactListWithFilters extends LightningElement {
         }
     };
 
+    /**
+     * Contain details of filter properties. 
+     * 
+     * IMPORTANT: Any new filter added, an entry should be made here.
+     */
     filterAttributes = {
         title : { selectedValue:'' }, 
         account : { selectedValue:'' },
@@ -27,8 +40,13 @@ export default class ContactListWithFilters extends LightningElement {
         industry : { selectedValue:'' }
     };
 
+    /**
+     * Fetches filterAttributes from Apex Controller, converts it from 
+     * String to JSON and sets filterAttributes property.
+     * @param {*} result - filter attributes in String format
+     */
     @wire(getFilterDetails)
-    filterDetails(result) {
+    filterAttributesMethod(result) {
         if (result.data) {
             // This will convert data from List<SObject> to desired JSON format.
             this.filterAttributes = JSON.parse(result.data);
@@ -36,21 +54,20 @@ export default class ContactListWithFilters extends LightningElement {
         }
     }
 
-    /* connectedCallback() {
-        getFilterDetails()
-        .then(result => {
-            console.log('connectedCallback getFilterDetails result', result);
-            // console.log('connectedCallback getFilterDetails result.data', result.data);
-            this.filterAttributes = JSON.parse(result);
-            console.log('connectedCallback this.filterAttributes', this.filterAttributes);
-        });
-    } */
-
-
+    // Controls the sort field. It should be field API Name
     sortBy = 'Name';
+
+    /**
+     * Contain data for datatable lwc component.
+     */
     contacts;
 
-    @wire(getContactData, {sortBy : '$sortBy', filters: '$filterValues'/* , filterAttr : '$filterAttrs' */ } )
+    /**
+     * Fetches contacts data from backend. Takes sortBy and filters as parameters. 
+     * filterValues returns data at runtime by iterating through filterAttributes property.
+     * @param {*} result - contacts data based on filters, sorted by sortBy
+     */
+    @wire(getContactData, {sortBy : '$sortBy', filters: '$filterValues' } )
     contactsMethod(result) {
         if (result.data) {
             // This will convert data from List<SObject> to desired JSON format.
@@ -58,25 +75,43 @@ export default class ContactListWithFilters extends LightningElement {
         }
     }
 
+    /**
+     * columns to be displayed on datatable lwc component.
+     */
     columns;
 
+    /**
+     * Retrives columns information from backend and sets columns property by converting result to JSON.
+     * @param {*} result - column information retrieved from backend.
+     */
     @wire(getColumnDetails)
-    stringColumns(result) {
+    columnsMethod(result) {
         if (result.data) {
             // This will convert data from List<SObject> to desired JSON format.
             this.columns = JSON.parse(result.data);
         }
     };
 
+    // default sort direction - used in datatable LWC component
     defaultSortDirection = 'asc';
+
+    // sort direction - used in datatable LWC component
     sortDirection = 'asc';
+
+    // sorted by - used in datatable LWC component
     sortedBy;
 
+
+    /**
+     * method called on click on column header for sorting
+     */
     onHandleSort() {
         // TBD:
     }
 
-    
+    /**
+     * Used for providing filter values for filtering contacts data
+     */
     get filterValues() {
         let filterVals = [];
         Object.values(this.filterAttributes).forEach(value => {
@@ -86,20 +121,26 @@ export default class ContactListWithFilters extends LightningElement {
         return filterVals;
     }
 
+    /**
+     * Onchange handle for dropdown filters
+     * @param {*} event 
+     */
     handleChange(event) {
         console.log('field name', event.target.name);
         const field = String(event.target.name);
         this.filterAttributes[field].selectedValue = String(event.target.value);
     }
 
+    /**
+     * Onclick handler for Search button
+     */
     doSearch() {
         console.log(this.filterValues);
-        // refreshApex(this.wiredContacts);
-        getContactData( {sortBy : this.sortBy, filters: this.filterValues/* , filterAttrs: this.filterAttrs */ } )
+
+        // Make a call to getContactData backend method to return data based on filterValues, and sorted by sortBy
+        getContactData( {sortBy : this.sortBy, filters: this.filterValues } )
         .then(result => {
-            console.log('doSearch result', result);
             if (result) {
-                console.log('doSearch Setting contacts', result.data);
                 this.contacts = result;
             }
         });
