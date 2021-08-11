@@ -1,5 +1,6 @@
 public with sharing class ContactListLWCHelper {
 
+    // Base object for which data to be shown.
     public static final String OBJECT_NAME = 'Contact';
 
     /**
@@ -348,10 +349,6 @@ public with sharing class ContactListLWCHelper {
         return null;
     }
 
-    /* public class Filter {
-        public FilterDetails title;
-        public FilterDetails account;
-    } */
 
     /**
      * Class to data for filters
