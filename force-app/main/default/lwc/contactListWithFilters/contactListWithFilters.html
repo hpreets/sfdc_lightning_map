@@ -1,55 +1,55 @@
 <template>
     
     <lightning-combobox
-            name="title"
-            label="Title"
-            value={filterAttributes.title.selectedValue}
-            placeholder="All"
-            options={filtersData.title} 
-            onchange={handleChange} ></lightning-combobox>
+        name="title"
+        label="Title"
+        value={filterAttributes.title.selectedValue}
+        placeholder="All"
+        options={filtersData.title} 
+        onchange={handleChange} ></lightning-combobox>
     <lightning-combobox
-            name="account"
-            label="Account"
-            value={filterAttributes.account.selectedValue}
-            placeholder="All"
-            options={filtersData.account} 
-            onchange={handleChange}></lightning-combobox>
+        name="account"
+        label="Account"
+        value={filterAttributes.account.selectedValue}
+        placeholder="All"
+        options={filtersData.account} 
+        onchange={handleChange}></lightning-combobox>
     <lightning-combobox
-            name="level"
-            label="Level"
-            value={filterAttributes.level.selectedValue}
-            placeholder="All"
-            options={filtersData.level}
-            onchange={handleChange}></lightning-combobox>
+        name="level"
+        label="Level"
+        value={filterAttributes.level.selectedValue}
+        placeholder="All"
+        options={filtersData.level}
+        onchange={handleChange}></lightning-combobox>
     <lightning-combobox
-            name="leadsource"
-            label="Lead Source"
-            value={filterAttributes.leadsource.selectedValue}
-            placeholder="All"
-            options={filtersData.leadsource}
-            onchange={handleChange}></lightning-combobox>
+        name="leadsource"
+        label="Lead Source"
+        value={filterAttributes.leadsource.selectedValue}
+        placeholder="All"
+        options={filtersData.leadsource}
+        onchange={handleChange}></lightning-combobox>
     <lightning-combobox
-            name="industry"
-            label="Industry"
-            value={filterAttributes.industry.selectedValue}
-            placeholder="All"
-            options={filtersData.industry}
-            onchange={handleChange}></lightning-combobox>
+        name="industry"
+        label="Industry"
+        value={filterAttributes.industry.selectedValue}
+        placeholder="All"
+        options={filtersData.industry}
+        onchange={handleChange}></lightning-combobox>
 
-            <lightning-button type="button"
-            name="btnSearch"
-            label="Search"
-            variant="brand"
-            onclick={doSearch}></lightning-button>
+    <lightning-button type="button"
+        name="btnSearch"
+        label="Search"
+        variant="brand"
+        onclick={doSearch}></lightning-button>
     
     <lightning-datatable
-            class="slds-max-medium-table_stacked"
-            key-field="id"
-            columns={columns}
-            data={contacts}
-            default-sort-direction={defaultSortDirection}
-            sorted-direction={sortDirection}
-            sorted-by={sortedBy}
-            onsort={onHandleSort}>
+        class="slds-max-medium-table_stacked"
+        key-field="id"
+        columns={columns}
+        data={contacts}
+        default-sort-direction={defaultSortDirection}
+        sorted-direction={sortDirection}
+        sorted-by={sortedBy}
+        onsort={onHandleSort}>
     </lightning-datatable>
 </template>

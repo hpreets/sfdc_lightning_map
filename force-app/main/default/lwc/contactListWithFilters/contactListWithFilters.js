@@ -55,7 +55,7 @@ export default class ContactListWithFilters extends LightningElement {
     }
 
     // Controls the sort field. It should be field API Name
-    sortBy = 'Name';
+    // sortBy = 'Name';
 
     /**
      * Contain data for datatable lwc component.
@@ -67,7 +67,7 @@ export default class ContactListWithFilters extends LightningElement {
      * filterValues returns data at runtime by iterating through filterAttributes property.
      * @param {*} result - contacts data based on filters, sorted by sortBy
      */
-    @wire(getContactData, {sortBy : '$sortBy', filters: '$filterValues' } )
+    @wire(getContactData, {sortBy : '$sortedBy', filters: '$filterValues' } )
     contactsMethod(result) {
         if (result.data) {
             // This will convert data from List<SObject> to desired JSON format.
@@ -98,15 +98,22 @@ export default class ContactListWithFilters extends LightningElement {
     // sort direction - used in datatable LWC component
     sortDirection = 'asc';
 
-    // sorted by - used in datatable LWC component
-    sortedBy;
+    // sorted by - used in datatable LWC component. It should be field API Name
+    sortedBy = 'Name';
 
 
     /**
      * method called on click on column header for sorting
      */
-    onHandleSort() {
-        // TBD:
+    onHandleSort(event) {
+        const { fieldName: sortedBy, sortDirection } = event.detail;
+        console.log(sortedBy, sortDirection);
+        
+        this.sortDirection = sortDirection;
+        this.sortedBy = sortedBy;
+
+        // Server-side sorting and filtering
+        this.doSearch();
     }
 
     /**
@@ -138,7 +145,7 @@ export default class ContactListWithFilters extends LightningElement {
         console.log(this.filterValues);
 
         // Make a call to getContactData backend method to return data based on filterValues, and sorted by sortBy
-        getContactData( {sortBy : this.sortBy, filters: this.filterValues } )
+        getContactData( {sortBy : this.sortedBy + ' ' + this.sortDirection, filters: this.filterValues } )
         .then(result => {
             if (result) {
                 this.contacts = result;
